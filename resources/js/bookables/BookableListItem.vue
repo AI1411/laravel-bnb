@@ -4,7 +4,7 @@
             <router-link :to="{name: 'bookable', params: {id: id}}">
                 <h5 class="card-title">{{ title }}</h5>
             </router-link>
-            <p class="card-text">{{ description}}</p>
+            <p class="card-text">{{ description }}</p>
         </div>
     </div>
 </template>
