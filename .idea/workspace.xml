@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ebd71354-107c-4f63-adf5-8639affe82ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Bookable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Bookable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Booking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bookable/Availability.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bookable/Availability.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/bookable/Bookable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bookable/Bookable.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/bookable/ReviewList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bookable/ReviewList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ja/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ja/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577784950217</updated>
       <workItem from="1577785007988" duration="14316000" />
-      <workItem from="1577858070213" duration="27426000" />
+      <workItem from="1577858070213" duration="29297000" />
     </task>
     <servers />
   </component>
@@ -176,10 +175,10 @@
     </state>
     <state x="1901" y="224" key="SettingsEditor/0.0.1440.900/1440.35.1920.1080@1440.35.1920.1080" timestamp="1577939910400" />
     <state x="1901" y="224" key="SettingsEditor/0.23.1440.877/1440.35.1920.1080@1440.35.1920.1080" timestamp="1577948328956" />
-    <state x="2065" y="294" width="670" height="662" key="search.everywhere.popup" timestamp="1577968114268">
+    <state x="2065" y="294" width="670" height="662" key="search.everywhere.popup" timestamp="1577970313373">
       <screen x="1440" y="58" width="1920" height="1057" />
     </state>
     <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.35.1920.1080@1440.35.1920.1080" timestamp="1577964763227" />
-    <state x="2065" y="294" width="670" height="662" key="search.everywhere.popup/0.23.1440.826/1440.58.1920.1057@1440.58.1920.1057" timestamp="1577968114268" />
+    <state x="2065" y="294" width="670" height="662" key="search.everywhere.popup/0.23.1440.826/1440.58.1920.1057@1440.58.1920.1057" timestamp="1577970313373" />
   </component>
 </project>
