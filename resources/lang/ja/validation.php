@@ -143,6 +143,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'from' => '開始日',
+        'to' => '終了日',
+    ],
 
 ];
