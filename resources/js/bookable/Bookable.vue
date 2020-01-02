@@ -3,7 +3,7 @@
         <div class="col-md-8 pb-4">
             <div class="card">
                 <div class="card-body">
-                    <div v-if="loading">
+                    <div v-if="!loading">
                         <h2>{{ bookable.title }}</h2>
                         <hr/>
                         <article>{{ bookable.description }}</article>
@@ -35,6 +35,7 @@
             axios.get(`/api/bookables/${this.$route.params.id}`)
                 .then(response => {
                     this.bookable = response.data.data;
+                    this.loading = false
                 })
         }
     }
