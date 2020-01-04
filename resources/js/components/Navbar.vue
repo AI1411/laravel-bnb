@@ -7,7 +7,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <router-link :to="{name: 'home'}" class="nav-link">
+                        Home
+                    </router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -15,7 +17,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li>
-                    <router-link class="btn nav-button" :to="{name: 'home'}">
+                    <router-link class="btn nav-button" :to="{name: 'basket'}">
                         Basket
                         <span v-if="itemsInBasket" class="badge badge-secondary">{{ itemsInBasket }}</span>
                     </router-link>

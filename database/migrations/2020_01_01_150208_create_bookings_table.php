@@ -19,11 +19,15 @@ class CreateBookingsTable extends Migration
 
             $table->date('from');
             $table->date('to');
-
+            $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('address_id')->index()->nullable();
             $table->unsignedBigInteger('bookable_id')->index();
-            $table->foreign('bookable_id')->references('id')->on('bookables');
 
+            $table->foreign('bookable_id')->references('id')->on('bookables');
+//            $table->foreign('address_id')->references('id')->on('addresses');
             $table->uuid('review_key');
+
+
         });
     }
 

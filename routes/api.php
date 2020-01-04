@@ -1,9 +1,5 @@
 <?php
-
-use App\Bookable;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -29,3 +24,4 @@ Route::get('bookables/{bookable}/price', 'Api\BookablePriceController')
 Route::get('/booking-by-review/{reviewKey}', 'Api\BookingByReviewController')
     ->name('booking.by-review.show');
 Route::apiResource('reviews', 'Api\ReviewController')->only(['show', 'store']);
+Route::post('checkout', 'Api\CheckoutController')->name('checkout');

@@ -1,3 +1,4 @@
+
 <template>
     <div class="row">
         <div class="col-md-8 pb-4">
@@ -41,8 +42,8 @@
             >Remove from basket</button>
 
             <div
-            v-if="inBasketAlready"
-            class="mt-4 text-muted warning"
+                v-if="inBasketAlready"
+                class="mt-4 text-muted warning"
             >Seems like you've added this object to basket already. If you want to change dates, remove from the basket first.</div>
         </div>
     </div>
@@ -52,7 +53,7 @@
     import Availability from "./Availability";
     import ReviewList from "./ReviewList";
     import PriceBreakdown from "./PriceBreakdown";
-    import {mapState, mapGetters} from 'vuex';
+    import { mapState, mapGetters } from "vuex";
     export default {
         components: {
             Availability,
@@ -73,43 +74,49 @@
                 this.loading = false;
             });
         },
-        computed: mapState({
-           lastSearch: 'lastSearch',
-            inBasketAlready(state) {
-               if (this.bookable === null) {
-                   return false;
-               }
-
-               return state.basket.items.reduce(
-                   (result, item) => result || item.bookable.id === this.bookable.id,
-                   false
-               );
+        computed: {
+            ...mapState({
+                lastSearch: "lastSearch"
+            }),
+            inBasketAlready() {
+                if (null === this.bookable) {
+                    return false;
+                }
+                return this.$store.getters.inBasketAlready(this.bookable.id);
             }
-        }),
+        },
         methods: {
             async checkPrice(hasAvailability) {
                 if (!hasAvailability) {
                     this.price = null;
-                    return ;
+                    return;
                 }
-                try{
+                try {
                     this.price = (await axios.get(
-                        `/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`
+                        `/api/bookables/${this.bookable.id}/price?from=${
+                            this.lastSearch.from
+                        }&to=${this.lastSearch.to}`
                     )).data.data;
-                } catch(err){
-                    this.price = null
+                } catch (err) {
+                    this.price = null;
                 }
             },
             addToBasket() {
-                this.$store.commit('addToBasket', {
+                this.$store.dispatch("addToBasket", {
                     bookable: this.bookable,
                     price: this.price,
                     dates: this.lastSearch
-                })
+                });
             },
             removeFromBasket() {
-                this.$store.commit('removeFromBasket', this.bookable.id);
+                this.$store.dispatch("removeFromBasket", this.bookable.id);
             }
         }
     };
 </script>
+
+<style scoped>
+    .warning {
+        font-size: 0.7rem;
+    }
+</style>

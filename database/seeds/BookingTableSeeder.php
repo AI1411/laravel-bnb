@@ -24,7 +24,8 @@ class BookingTableSeeder extends Seeder
 
                 $booking = Booking::make([
                     'from' => $from,
-                    'to' => $to
+                    'to' => $to,
+                    'price' => random_int(1500, 60000)
                 ]);
                 $bookings->push($booking);
             }
