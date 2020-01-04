@@ -19,6 +19,7 @@ class CreateBookablesTable extends Migration
 
             $table->string('title');
             $table->text('description');
+            $table->unsignedBigInteger('price');
         });
     }
 

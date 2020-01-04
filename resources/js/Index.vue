@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-4 mb-4 pr-4 pl-4">
         <Navbar/>
         <div>
             <router-view></router-view>
@@ -8,11 +8,25 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
     import Navbar from "./components/Navbar";
 
     export default {
         components: {
             Navbar
+        },
+        data() {
+            return {
+                lastSearch: this.$store.state.lastSearch
+            }
+        },
+        computed: {
+            ...mapState({
+                lastSearchComputed: 'lastSearch'
+            }),
+            somethingElse() {
+                return 1 + 2;
+            }
         }
     }
 </script>

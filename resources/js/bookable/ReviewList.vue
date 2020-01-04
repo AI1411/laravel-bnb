@@ -26,7 +26,7 @@
     export default {
         props: {
             bookableId: {
-                type: String,
+                type: [String,Number],
                 required: true
             }
         },

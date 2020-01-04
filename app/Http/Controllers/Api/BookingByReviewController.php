@@ -13,6 +13,6 @@ class BookingByReviewController extends Controller
     {
         $booking = Booking::findByReviewKey($reviewKey);
 
-        return $booking ?  new BookingByReviewShowResource($booking) : abort(404);
+        return $booking ? new BookingByReviewShowResource($booking) : abort(404);
     }
 }

@@ -1,3 +1,4 @@
+
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
@@ -21,6 +22,7 @@ $suffix = [
 $factory->define(Bookable::class, function (Faker $faker) use ($suffix) {
     return [
         'title' => $faker->city . ' ' . Arr::random($suffix),
-        'description' => $faker->text()
+        'description' => $faker->text(),
+        'price' => random_int(1500, 60000),
     ];
 });
