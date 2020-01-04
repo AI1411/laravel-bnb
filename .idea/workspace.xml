@@ -4,7 +4,9 @@
     <list default="true" id="ebd71354-107c-4f63-adf5-8639affe82ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/bookable/Bookable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bookable/Bookable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +19,20 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,7 +176,7 @@
       <workItem from="1577785007988" duration="14316000" />
       <workItem from="1577858070213" duration="39934000" />
       <workItem from="1578048288608" duration="11584000" />
-      <workItem from="1578117664259" duration="4538000" />
+      <workItem from="1578117664259" duration="6281000" />
     </task>
     <servers />
   </component>
@@ -185,10 +201,10 @@
       <screen x="1440" y="35" width="1920" height="1080" />
     </state>
     <state x="2064" y="327" width="671" height="496" key="find.popup/0.0.1440.900/1440.35.1920.1080@1440.35.1920.1080" timestamp="1577980724888" />
-    <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup" timestamp="1578123233715">
+    <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup" timestamp="1578129070227">
       <screen x="1440" y="35" width="1920" height="1080" />
     </state>
-    <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.35.1920.1080@1440.35.1920.1080" timestamp="1578123233715" />
+    <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.35.1920.1080@1440.35.1920.1080" timestamp="1578129070227" />
     <state x="2065" y="294" width="670" height="662" key="search.everywhere.popup/0.23.1440.826/1440.58.1920.1057@1440.58.1920.1057" timestamp="1577971393244" />
     <state x="2065" y="276" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/1440.35.1920.1080@1440.35.1920.1080" timestamp="1578035255111" />
   </component>

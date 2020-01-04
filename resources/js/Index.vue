@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex';
+    import {mapState, mapGetters} from 'vuex';
     import Navbar from "./components/Navbar";
 
     export default {
@@ -23,6 +23,9 @@
         computed: {
             ...mapState({
                 lastSearchComputed: 'lastSearch'
+            }),
+            ...mapGetters({
+               itemsInBasket : 'itemsInBasket'
             }),
             somethingElse() {
                 return 1 + 2;

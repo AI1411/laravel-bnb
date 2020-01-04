@@ -13,17 +13,26 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <router-link class="btn nav-button" :to="{name: 'home'}">
+                        Basket
+                        <span v-if="itemsInBasket" class="badge badge-secondary">{{ itemsInBasket }}</span>
+                    </router-link>
+                </li>
+            </ul>
         </div>
     </nav>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     export default {
-        name: "Navbar"
+        computed: {
+            ...mapGetters({
+                itemsInBasket: 'itemsInBasket'
+            })
+        }
     }
 </script>
 

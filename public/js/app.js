@@ -1880,6 +1880,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     lastSearchComputed: 'lastSearch'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    itemsInBasket: 'itemsInBasket'
   }), {
     somethingElse: function somethingElse() {
       return 1 + 2;
@@ -2100,6 +2102,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2127,7 +2141,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     });
   },
   computed: Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
-    lastSearch: 'lastSearch'
+    lastSearch: 'lastSearch',
+    inBasketAlready: function inBasketAlready(state) {
+      var _this2 = this;
+
+      if (this.bookable === null) {
+        return false;
+      }
+
+      return state.basket.items.reduce(function (result, item) {
+        return result || item.bookable.id === _this2.bookable.id;
+      }, false);
+    }
   }),
   methods: {
     checkPrice: function () {
@@ -2181,6 +2206,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         price: this.price,
         dates: this.lastSearch
       });
+    },
+    removeFromBasket: function removeFromBasket() {
+      this.$store.commit('removeFromBasket', this.bookable.id);
     }
   }
 });
@@ -2445,6 +2473,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2468,8 +2503,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Navbar"
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    itemsInBasket: 'itemsInBasket'
+  }))
 });
 
 /***/ }),
@@ -57574,12 +57616,32 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-outline-secondary btn-block",
+                  attrs: { disabled: _vm.inBasketAlready },
                   on: { click: _vm.addToBasket }
                 },
                 [_vm._v("Book now")]
               )
             : _vm._e()
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.inBasketAlready
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-secondary btn-block",
+                on: { click: _vm.removeFromBasket }
+              },
+              [_vm._v("Remove from basket")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.inBasketAlready
+          ? _c("div", { staticClass: "mt-4 text-muted warning" }, [
+              _vm._v(
+                "Seems like you've added this object to basket already. If you want to change dates, remove from the basket first."
+              )
+            ])
+          : _vm._e()
       ],
       1
     )
@@ -57892,7 +57954,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    { staticClass: "navbar navbar-expand-lg navbar-light bg-primary mb-4" },
+    [
+      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+        _vm._v("Navbar")
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "navbarSupportedContent" }
+        },
+        [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn nav-button",
+                    attrs: { to: { name: "home" } }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Basket\n                    "
+                    ),
+                    _vm.itemsInBasket
+                      ? _c("span", { staticClass: "badge badge-secondary" }, [
+                          _vm._v(_vm._s(_vm.itemsInBasket))
+                        ])
+                      : _vm._e()
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -57900,74 +58009,39 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-primary mb-4" },
-      [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("Navbar")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c("li", { staticClass: "nav-item active" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Home "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Link")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-              _c("input", {
-                staticClass: "form-control mr-sm-2",
-                attrs: {
-                  type: "search",
-                  placeholder: "Search",
-                  "aria-label": "Search"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-success my-2 my-sm-0",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("Search")]
-              )
-            ])
-          ]
-        )
-      ]
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+      _c("li", { staticClass: "nav-item active" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _vm._v("Home "),
+          _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _vm._v("Link")
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -75739,6 +75813,11 @@ __webpack_require__.r(__webpack_exports__);
       if (lastSearch) {
         context.commit('setLastSearch', JSON.parse(lastSearch));
       }
+    }
+  },
+  getters: {
+    itemsInBasket: function itemsInBasket(state) {
+      return state.basket.items.length;
     }
   }
 });
